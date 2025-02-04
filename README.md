@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+to<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,3 +30,47 @@
     </div>
 </body>
 </html>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+header {
+    background: #222;
+    color: white;
+    padding: 20px;
+}
+#searchBar {
+    padding: 10px;
+    width: 80%;
+    margin-top: 10px;
+}
+#video-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+.video {
+    background: white;
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+}
+iframe {
+    width: 100%;
+    height: 200px;
+}document.getElementById("searchBar").addEventListener("keyup", function() {
+    let filter = this.value.toLowerCase();
+    let videos = document.querySelectorAll(".video");
+
+    videos.forEach(video => {
+        let title = video.getAttribute("data-title").toLowerCase();
+        if (title.includes(filter)) {
+            video.style.display = "block";
+        } else {
+            video.style.display = "none";
+        }
+    });
+});
